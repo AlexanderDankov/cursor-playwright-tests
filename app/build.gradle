@@ -26,11 +26,14 @@ dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 
+    // AssertJ for fluent assertions
+    testImplementation 'org.assertj:assertj-core:3.26.0'
+
     // Allure JUnit5 adapter for reporting
     testImplementation 'io.qameta.allure:allure-junit5:2.27.0'
 
-    // Playwright Java for testing
-    testImplementation 'com.microsoft.playwright:playwright:1.39.0'
+    // Playwright Java (доступен и в main, и в test)
+    implementation 'com.microsoft.playwright:playwright:1.39.0'
 
     // This dependency is used by the application.
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

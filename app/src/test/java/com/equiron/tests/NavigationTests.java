@@ -1,11 +1,14 @@
 package com.equiron.tests;
 
+import com.equiron.pages.DemoWebshopLocators;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * 001–019 — навигация и главная страница.
@@ -19,8 +22,25 @@ public class NavigationTests extends BasePlaywrightTest {
     @Story("USE_CASE_001")
     @Description(DemoWebshopTestPlan.USE_CASE_001)
     void useCase001_homePageOpens() {
-        // TODO: реализовать открытие главной страницы и проверку заголовка "Welcome to our store"
         page.navigate(BASE_URL);
+
+        // Проверка заголовка "Welcome to our store"
+        boolean titleVisible = page
+                .locator(DemoWebshopLocators.HOME_WELCOME_TITLE)
+                .first()
+                .isVisible();
+        assertThat(titleVisible)
+                .as("Заголовок \"Welcome to our store\" должен быть видим на главной странице")
+                .isTrue();
+
+        // Проверка наличия блока "Featured products"
+        boolean featuredProductsVisible = page
+                .getByText(DemoWebshopLocators.HOME_FEATURED_PRODUCTS_BLOCK_TEXT)
+                .first()
+                .isVisible();
+        assertThat(featuredProductsVisible)
+                .as("Блок \"Featured products\" должен быть видим на главной странице")
+                .isTrue();
     }
 
     @Test

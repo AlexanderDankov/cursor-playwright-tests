@@ -8,7 +8,7 @@ package com.equiron.tests;
 public class DemoWebshopTestPlan {
 
     // 001–019 — навигация и главная страница
-    public static final String USE_CASE_001 = "001. Открытие главной страницы магазина и проверка заголовка \"Welcome to our store\".";
+    public static final String USE_CASE_001 = "001. Открытие главной страницы магазина, проверка заголовка \"Welcome to our store\" и наличия блока \"Featured products\".";
     public static final String USE_CASE_002 = "002. Проверка видимости основных разделов каталога на главной странице (Books, Computers, Electronics, Apparel & Shoes, Digital downloads, Jewelry, Gift Cards).";
     public static final String USE_CASE_003 = "003. Переход в раздел Books из меню и проверка, что отображается список книг.";
     public static final String USE_CASE_004 = "004. Переход в раздел Computers и его подкатегории (Desktops, Notebooks, Accessories) с проверкой доступности страниц.";
