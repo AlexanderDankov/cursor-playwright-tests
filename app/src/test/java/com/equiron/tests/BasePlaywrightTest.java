@@ -4,15 +4,18 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+@Execution(ExecutionMode.CONCURRENT)
 public abstract class BasePlaywrightTest {
 
     protected static final String BASE_URL = loadBaseUrl();
@@ -21,14 +24,14 @@ public abstract class BasePlaywrightTest {
     protected Browser browser;
     protected Page page;
 
-    @BeforeAll
+    @BeforeEach
     void setUpPlaywright() {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         page = browser.newPage();
     }
 
-    @AfterAll
+    @AfterEach
     void tearDownPlaywright() {
         if (page != null) {
             page.close();

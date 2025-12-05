@@ -110,33 +110,33 @@ public class NavigationTests extends BasePlaywrightTest {
         // Переход в раздел Computers
         page.locator(DemoWebshopLocators.NAV_COMPUTERS_LINK).first().click();
 
-        // Проверка доступности подкатегорий в боковом меню
-        assertThat(page.locator("xpath=" + DemoWebshopLocators.COMPUTERS_DESKTOPS_LINK).isVisible())
+        // Проверка доступности подкатегорий на странице
+        assertThat(page.locator(DemoWebshopLocators.COMPUTERS_DESKTOPS_LINK).isVisible())
                 .as("Ссылка на подкатегорию Desktops должна быть видимой")
                 .isTrue();
 
-        assertThat(page.locator("xpath=" + DemoWebshopLocators.COMPUTERS_NOTEBOOKS_LINK).isVisible())
+        assertThat(page.locator(DemoWebshopLocators.COMPUTERS_NOTEBOOKS_LINK).isVisible())
                 .as("Ссылка на подкатегорию Notebooks должна быть видимой")
                 .isTrue();
 
-        assertThat(page.locator("xpath=" + DemoWebshopLocators.COMPUTERS_ACCESSORIES_LINK).isVisible())
+        assertThat(page.locator(DemoWebshopLocators.COMPUTERS_ACCESSORIES_LINK).isVisible())
                 .as("Ссылка на подкатегорию Accessories должна быть видимой")
                 .isTrue();
 
         // Проверка перехода в каждую подкатегорию
-        page.locator("xpath=" + DemoWebshopLocators.COMPUTERS_DESKTOPS_LINK).click();
+        page.locator(DemoWebshopLocators.COMPUTERS_DESKTOPS_LINK).click();
         assertThat(page.locator(DemoWebshopLocators.CATEGORY_PRODUCTS_LIST).count() >= 0)
                 .as("Страница Desktops должна открываться корректно")
                 .isTrue();
 
         page.goBack();
-        page.locator("xpath=" + DemoWebshopLocators.COMPUTERS_NOTEBOOKS_LINK).click();
+        page.locator(DemoWebshopLocators.COMPUTERS_NOTEBOOKS_LINK).click();
         assertThat(page.locator(DemoWebshopLocators.CATEGORY_PRODUCTS_LIST).count() >= 0)
                 .as("Страница Notebooks должна открываться корректно")
                 .isTrue();
 
         page.goBack();
-        page.locator("xpath=" + DemoWebshopLocators.COMPUTERS_ACCESSORIES_LINK).click();
+        page.locator(DemoWebshopLocators.COMPUTERS_ACCESSORIES_LINK).click();
         assertThat(page.locator(DemoWebshopLocators.CATEGORY_PRODUCTS_LIST).count() >= 0)
                 .as("Страница Accessories должна открываться корректно")
                 .isTrue();
@@ -153,22 +153,22 @@ public class NavigationTests extends BasePlaywrightTest {
         page.locator(DemoWebshopLocators.NAV_ELECTRONICS_LINK).first().click();
 
         // Проверка доступности подкатегорий
-        assertThat(page.locator("xpath=" + DemoWebshopLocators.ELECTRONICS_CAMERA_LINK).isVisible())
+        assertThat(page.locator(DemoWebshopLocators.ELECTRONICS_CAMERA_LINK).isVisible())
                 .as("Ссылка на подкатегорию Camera, photo должна быть видимой")
                 .isTrue();
 
-        assertThat(page.locator("xpath=" + DemoWebshopLocators.ELECTRONICS_CELL_PHONES_LINK).isVisible())
+        assertThat(page.locator(DemoWebshopLocators.ELECTRONICS_CELL_PHONES_LINK).isVisible())
                 .as("Ссылка на подкатегорию Cell phones должна быть видимой")
                 .isTrue();
 
         // Проверка перехода в каждую подкатегорию
-        page.locator("xpath=" + DemoWebshopLocators.ELECTRONICS_CAMERA_LINK).click();
+        page.locator(DemoWebshopLocators.ELECTRONICS_CAMERA_LINK).click();
         assertThat(page.locator(DemoWebshopLocators.CATEGORY_PRODUCTS_LIST).count() >= 0)
                 .as("Страница Camera, photo должна открываться корректно")
                 .isTrue();
 
         page.goBack();
-        page.locator("xpath=" + DemoWebshopLocators.ELECTRONICS_CELL_PHONES_LINK).click();
+        page.locator(DemoWebshopLocators.ELECTRONICS_CELL_PHONES_LINK).click();
         assertThat(page.locator(DemoWebshopLocators.CATEGORY_PRODUCTS_LIST).count() >= 0)
                 .as("Страница Cell phones должна открываться корректно")
                 .isTrue();

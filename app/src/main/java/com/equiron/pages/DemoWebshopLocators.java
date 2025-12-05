@@ -27,14 +27,14 @@ public final class DemoWebshopLocators {
     public static final String NAV_JEWELRY_LINK = "a[href*='/jewelry']";
     public static final String NAV_GIFT_CARDS_LINK = "a[href*='/gift-cards']";
 
-    // Подкатегории Computers (находятся в боковом меню Categories)
-    public static final String COMPUTERS_DESKTOPS_LINK = "//a[contains(@href,'/desktops') and text()='Desktops']";
-    public static final String COMPUTERS_NOTEBOOKS_LINK = "//a[contains(@href,'/notebooks') and text()='Notebooks']";
-    public static final String COMPUTERS_ACCESSORIES_LINK = "//a[contains(@href,'/accessories') and text()='Accessories']";
+    // Подкатегории Computers (ссылки в центральной части страницы)
+    public static final String COMPUTERS_DESKTOPS_LINK = ".item-box .title a[href*='/desktops']";
+    public static final String COMPUTERS_NOTEBOOKS_LINK = ".item-box .title a[href*='/notebooks']";
+    public static final String COMPUTERS_ACCESSORIES_LINK = ".item-box .title a[href*='/accessories']";
 
-    // Подкатегории Electronics (находятся в боковом меню Categories)
-    public static final String ELECTRONICS_CAMERA_LINK = "//a[contains(@href,'/camera-photo') and text()='Camera, photo']";
-    public static final String ELECTRONICS_CELL_PHONES_LINK = "//a[contains(@href,'/cell-phones') and text()='Cell phones']";
+    // Подкатегории Electronics (ссылки в центральной части страницы)
+    public static final String ELECTRONICS_CAMERA_LINK = ".item-box .title a[href*='/camera-photo']";
+    public static final String ELECTRONICS_CELL_PHONES_LINK = ".item-box .title a[href*='/cell-phones']";
 
     // Нижнее меню (footer)
     public static final String FOOTER_SITEMAP_LINK = "a[href*='/sitemap']";

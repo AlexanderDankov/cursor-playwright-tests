@@ -58,6 +58,15 @@ allure {
 tasks.withType(Test).configureEach {
     useJUnitPlatform()
     systemProperty 'allure.results.directory', "$buildDir/allure-results"
+
+    // Configure parallel test execution
+    def threads = System.getProperty('threads', '4').toInteger()
+    maxParallelForks = 1  // Один JVM процесс
+    systemProperty 'junit.jupiter.execution.parallel.enabled', 'true'
+    systemProperty 'junit.jupiter.execution.parallel.mode.default', 'concurrent'
+    systemProperty 'junit.jupiter.execution.parallel.mode.classes.default', 'concurrent'
+    systemProperty 'junit.jupiter.execution.parallel.config.strategy', 'fixed'
+    systemProperty 'junit.jupiter.execution.parallel.config.fixed.parallelism', threads.toString()
 }
 
 application {
